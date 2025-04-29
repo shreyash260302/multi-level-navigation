@@ -1,0 +1,15 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0" version="26.2.13">
+  <diagram name="Page-1" id="wrm3dHpy0UT8yAMu4ULf">
+    <mxGraphModel dx="990" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="&lt;pre&gt;┌─────────────────────┐&#xa;│Category             │&#xa;├─────────────────────┤&#xa;│+int id              │&#xa;│+string name         │&#xa;│+int parentCategoryId│&#xa;└─────────────────────┘&#xa;           |           &#xa;           |           &#xa;   ┌───────────────┐   &#xa;   │Subcategory    │   &#xa;   ├───────────────┤   &#xa;   │+int id        │   &#xa;   │+string name   │   &#xa;   │+int categoryId│   &#xa;   └───────────────┘   &#xa;           |           &#xa; ┌──────────────────┐  &#xa; │Product           │  &#xa; ├──────────────────┤  &#xa; │+int id           │  &#xa; │+string name      │  &#xa; │+float price      │  &#xa; │+int subcategoryId│  &#xa; └──────────────────┘  &#xa;           |           &#xa;                       &#xa; ┌───────────────────┐ &#xa; │ProductDetail      │ &#xa; ├───────────────────┤ &#xa; │+int id            │ &#xa; │+int productId     │ &#xa; │+string detailName │ &#xa; │+string detailValue│ &#xa; └───────────────────┘ &#xa;&lt;/pre&gt;" plantUmlData="{&#xa;  &quot;data&quot;: &quot;@startuml\nclass Category {\n  +int id\n  +string name\n  +int parentCategoryId\n}\n\nclass Subcategory {\n  +int id\n  +string name\n  +int categoryId\n}\n\nclass Product {\n  +int id\n  +string name\n  +float price\n  +int subcategoryId\n}\n\nclass ProductDetail {\n  +int id\n  +int productId\n  +string detailName\n  +string detailValue\n}\n\nCategory \&quot;1\&quot; *-- \&quot;*\&quot; Subcategory : contains\nSubcategory \&quot;1\&quot; *-- \&quot;*\&quot; Product : contains\nProduct \&quot;1\&quot; *-- \&quot;*\&quot; ProductDetail : has\n\n@enduml\n&quot;,&#xa;  &quot;format&quot;: &quot;txt&quot;&#xa;}" id="7TJJ7jh3ZDTfeS7xjSqq-1">
+          <mxCell style="text;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+            <mxGeometry x="430" y="290" width="180" height="540" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

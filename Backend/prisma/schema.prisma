@@ -1,0 +1,44 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Category {
+  id               Int           @id @default(autoincrement())
+  name             String
+  parentCategoryId Int?
+  parentCategory   Category?     @relation("CategoryHierarchy", fields: [parentCategoryId], references: [id])
+  childCategories  Category[]    @relation("CategoryHierarchy")
+  subcategories    Subcategory[] @relation("CategorySubcategories")  // Explicit relation name
+}
+
+model Subcategory {
+  id         Int       @id @default(autoincrement())
+  name       String
+  category   Category  @relation("CategorySubcategories", fields: [categoryId], references: [id])  // Explicit relation name
+  categoryId Int
+  products   Product[]
+}
+
+model Product {
+  id                Int             @id @default(autoincrement())
+  name              String
+  price             Float
+  description       String?
+  subcategory       Subcategory     @relation(fields: [subcategoryId], references: [id])
+  subcategoryId     Int
+  productAttributes Json? // New field for dynamic attributes
+  productDetails    ProductDetail[]
+}
+
+model ProductDetail {
+  id          Int     @id @default(autoincrement())
+  product     Product @relation(fields: [productId], references: [id])
+  productId   Int
+  detailName  String
+  detailValue String
+}
